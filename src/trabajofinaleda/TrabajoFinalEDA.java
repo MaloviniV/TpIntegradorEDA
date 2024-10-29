@@ -69,9 +69,7 @@ public class TrabajoFinalEDA {
                             break;
                         }
                         if(resp==1){
-                            System.out.println(arbol.getFila());
                             mostrarCamino(arbol);
-                            System.out.println(arbol.getFila());
                             ingresarProducto(arbol);
                         }
                     }else{
