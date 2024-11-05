@@ -9,7 +9,7 @@ public class ArbolBinario {
     private Queue<Integer> fila = new LinkedList<>();
 
     public ArbolBinario() {
-        preCargaNodos();
+        preCargaNodos();        //EL CONSTRUCTOR HACE LLAMA AL METODO PARA HACER LA PRECARGA DE PRODUCTOS
     }
     
     public Nodo getRaiz() {
@@ -28,12 +28,12 @@ public class ArbolBinario {
         this.fila = fila;
     }
 
-    public void inorden() {
+    public void inorden() {             //SE UTILIZA EL METODO INORDEN PARA MOSTRAR LAS OJAS DEL ARBOL
         this.inorden(this.raiz);
         System.out.println("");
     }
 
-        private void inorden(Nodo padre) {
+    private void inorden(Nodo padre) {
         if (padre != null) {
             inorden(padre.getIzq());
             if(!padre.getValor().contains("¿")){
@@ -61,7 +61,7 @@ public class ArbolBinario {
                 pregunta = "¿"+pregunta+"?";                
             }
             System.out.println("-------------------------------------------------------------");
-            System.out.println(     "El articulo es: "+pregunta);
+            System.out.println("|  EL ARTÍCULO ES: "+pregunta);
             System.out.println("|                  * Ingrese una opción *                   |");
             System.out.println("| 1 - SI                                                    |");
             System.out.println("| 2 - NO                                                    |");
@@ -119,13 +119,13 @@ public class ArbolBinario {
     }
     
     private void preCargaNodos() {
-        this.raiz = new Nodo("¿TV Y AUDIO?");     //NIVEL 1
-    //-------------------------------------------------------------     //NIVEL 2
+        this.raiz = new Nodo("¿TV Y AUDIO?");                             //NIVEL 1
+    //--------------------------------------------------------------------------     //NIVEL 2
         Nodo nodo1 = new Nodo("¿TECNOLOGIA?");  //NO - RAIZ
         Nodo nodo2 = new Nodo("¿AUDIO Y SONIDO?"); //SI - RAIZ
         raiz.setIzq(nodo1);
         raiz.setDer(nodo2);
-    //TECNOLOGIA-----------------------------------------------------    //NIVEL 3
+    //TECNOLOGIA----------------------------------------------------------------    //NIVEL 3
         Nodo nodo3 = new Nodo("¿ELECTRODOMESTICOS?");    //NO - NODO1
         Nodo nodo4 = new Nodo("¿COMPUTADORAS?");      //SI - NODO1
         nodo1.setIzq(nodo3);
@@ -135,7 +135,7 @@ public class ArbolBinario {
         Nodo nodo6 = new Nodo("¿AURICULARES?");  //SI - NODO2
         nodo2.setIzq(nodo5);
         nodo2.setDer(nodo6);
-    //------------------------------------------------      //NIVEL 4
+    //--------------------------------------------------------------------------      //NIVEL 4
             //ELECTRODOMESTICOS
         Nodo nodo8 = new Nodo("¿AIRE ACONDICIONADO?");      //SI - NODO3
         nodo3.setDer(nodo8);
@@ -154,7 +154,7 @@ public class ArbolBinario {
         Nodo nodo14 = new Nodo("PRODUCTO AURICULARES");     //SI - NODO6 -PRODUCTO
         nodo6.setIzq(nodo13);
         nodo6.setDer(nodo14);
-    //------------------------------------------------      //NIVEL 5
+    //--------------------------------------------------------------------------      //NIVEL 5
             //AIRE ACONDICIONADO
         Nodo nodo18 = new Nodo("PRODUCTO AIRE ACONDICIONADO");     //SI - NODO8 -PRODUCTO
         nodo8.setDer(nodo18);
@@ -174,7 +174,7 @@ public class ArbolBinario {
         Nodo nodo28 = new Nodo("PRODUCTO ESTEREOS");     //SI - NODO13 -PRODUCTO
         nodo13.setDer(nodo28);
          
-    //------------------------------------------------      //NIVEL 5
+    //--------------------------------------------------------------------------      //NIVEL 6
             //CONSOLAS
         Nodo nodo42 = new Nodo("PRODUCTO CONSOLAS");     //SI - NODO20
         nodo20.setDer(nodo42);
