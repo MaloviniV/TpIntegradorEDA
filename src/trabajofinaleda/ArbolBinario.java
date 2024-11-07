@@ -28,7 +28,7 @@ public class ArbolBinario {
         this.fila = fila;
     }
 
-    public void inorden() {             //SE UTILIZA EL METODO INORDEN PARA MOSTRAR LAS OJAS DEL ARBOL
+    public void inorden() {             //SE UTILIZA EL METODO INORDEN PARA MOSTRAR LAS HOJAS DEL ARBOL
         this.inorden(this.raiz);
         System.out.println("");
     }
@@ -82,14 +82,22 @@ public class ArbolBinario {
         
         fila.add(resp);
         
-        if(padre.esHoja()&&resp==1){
-            return padre;
-        }
-        if(resp==2){
-            return buscar(padre.getIzq());        
-        }else{
+        if(resp==1){
+            if(padre.esHoja()){         //SI EL NODO ES UNA HOJA Y LA RESPUESTA ES SI DEVUELVE EL NODO (PRODUCTO)
+                return padre;
+            }
             return buscar(padre.getDer());
-        }        
+        }else{
+            return buscar(padre.getIzq());
+        }
+//        if(padre.esHoja()&&resp==1){        //SI EL NODO ES UNA HOJA Y LA RESPUESTA ES SI DEVUELVE EL NODO (PRODUCTO)
+//            return padre;
+//        }
+//        if(resp==2){
+//            return buscar(padre.getIzq());        
+//        }else{
+//            return buscar(padre.getDer());
+//        }        
     }
     
     public void insertar(String dato){
@@ -97,10 +105,13 @@ public class ArbolBinario {
             this.raiz = new Nodo(dato);
         }
         insertar(this.raiz, dato);
-        this.getFila().add(1);
+        this.getFila().add(1);      //AGREGO EL 1 A LA FILA QUE REPRESENTA LA CATEGORIA O EL PRODUCTO AGREGADO
     }
 
     private void insertar(Nodo padre, String dato) {
+        if(fila.isEmpty()){         //VALIDACION EN CASO QUE LA FILA NO ESTE CARGADA POR ARBOL VACIO
+            return;
+        }
         if(fila.element()==2){
             fila.add(fila.poll());
             if(padre.getIzq() == null){
